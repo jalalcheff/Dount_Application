@@ -36,72 +36,76 @@ import com.teckiti.R
 
 @Composable
 fun BottomSheet(){
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(whiteBackground)
-            .padding(horizontal = 40.dp)
-            .clip(RoundedCornerShape(32.dp))
-    ) {
-        Spacer(modifier = Modifier.height(36.dp))
-        TitleText(
-            text = "Strawberry Wheel",
-            fontSize = 24,
-            Modifier.padding(0.dp)
-        )
-        VerticalSpacer(space = 36)
-        Text(
-            text = "About Gonut",
-            fontWeight = FontWeight.SemiBold,
-            fontFamily = FontFamily(Font(R.font.inter_regular)),
-            )
-        VerticalSpacer(space = 16)
-        Text(
-            text = stringResource(R.string.these_soft_cake),
-            fontWeight = FontWeight.Light
-        )
-        VerticalSpacer(space = 26)
-        Text(
-            text = "Quantity",
-            fontWeight = FontWeight.SemiBold,
-            fontFamily = FontFamily(Font(R.font.inter_regular)),
-        )
-        VerticalSpacer(space = 16)
-        Row() {
-            IncDec(text = "-")
-            IncDec(text = "1")
-            IncDec(
-                text = "+",
-                textColor = Color.White,
-                cardColors = CardDefaults.cardColors(Color.Black)
-            )
-        }
-        Spacer(modifier = Modifier.weight(1f))
-        Row(modifier = Modifier.padding(bottom = 24.dp),
+    Card(shape = RoundedCornerShape(20.dp)) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(whiteBackground)
+                .padding(horizontal = 40.dp)
+                .clip(RoundedCornerShape(32.dp))
         ) {
+            Spacer(modifier = Modifier.height(36.dp))
+            TitleText(
+                text = "Strawberry Wheel",
+                fontSize = 24,
+                Modifier.padding(0.dp)
+            )
+            VerticalSpacer(space = 36)
             Text(
-                text = "$ 16",
-                fontSize = 32.sp,
+                text = "About Gonut",
                 fontWeight = FontWeight.SemiBold,
                 fontFamily = FontFamily(Font(R.font.inter_regular)),
-                modifier = Modifier.align(alignment = Alignment.CenterVertically)
+            )
+            VerticalSpacer(space = 16)
+            Text(
+                text = stringResource(R.string.these_soft_cake),
+                fontWeight = FontWeight.Light
+            )
+            VerticalSpacer(space = 26)
+            Text(
+                text = "Quantity",
+                fontWeight = FontWeight.SemiBold,
+                fontFamily = FontFamily(Font(R.font.inter_regular)),
+            )
+            VerticalSpacer(space = 16)
+            Row() {
+                IncDec(text = "-")
+                IncDec(text = "1")
+                IncDec(
+                    text = "+",
+                    textColor = Color.White,
+                    cardColors = CardDefaults.cardColors(Color.Black)
                 )
-            Button(
-                onClick = { /*TODO*/ },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp).padding(start = 8.dp),
-                colors = ButtonDefaults.buttonColors(pink700)
+            }
+            Spacer(modifier = Modifier.weight(1f))
+            Row(modifier = Modifier.padding(bottom = 24.dp),
             ) {
                 Text(
-                    text = "Add to Cart",
-                    modifier = Modifier.padding(vertical = 16.dp),
-                    color = Color.White,
-                    fontSize = 24.sp
+                    text = "$ 16",
+                    fontSize = 32.sp,
+                    fontWeight = FontWeight.SemiBold,
+                    fontFamily = FontFamily(Font(R.font.inter_regular)),
+                    modifier = Modifier.align(alignment = Alignment.CenterVertically)
                 )
+                Button(
+                    onClick = { /*TODO*/ },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp)
+                        .padding(start = 8.dp),
+                    colors = ButtonDefaults.buttonColors(pink700)
+                ) {
+                    Text(
+                        text = "Add to Cart",
+                        modifier = Modifier.padding(vertical = 16.dp),
+                        color = Color.White,
+                        fontSize = 24.sp
+                    )
+                }
             }
         }
     }
+
 }
 
 @Preview(widthDp = 360, heightDp = 800)
