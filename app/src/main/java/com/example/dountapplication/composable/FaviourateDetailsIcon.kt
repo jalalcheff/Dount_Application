@@ -17,6 +17,7 @@ import com.teckiti.R
 import androidx.compose.foundation.layout.offset
 import androidx.compose.material3.CardDefaults
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.zIndex
 import com.example.dountapplication.ui.theme.pink700
 
@@ -24,7 +25,9 @@ import com.example.dountapplication.ui.theme.pink700
 @Composable
 fun FavouriteDetailsIcon(
     modifier: Modifier = Modifier,
-    cardColor: Color = Color.White
+    cardColor: Color = Color.White,
+    shape: Shape = CardDefaults.shape,
+    alignment: Alignment.Horizontal = Alignment.End
 ) {
     Column(modifier = modifier.fillMaxWidth()) {
         Card(
@@ -32,8 +35,9 @@ fun FavouriteDetailsIcon(
                 .zIndex(1f)
                 .offset(x = 0.dp, y = 18.dp)
                 .padding(end = 12.dp)
-                .align(Alignment.End),
-            colors = CardDefaults.cardColors(containerColor = cardColor)
+                .align(alignment = alignment),
+            colors = CardDefaults.cardColors(containerColor = cardColor),
+            shape = shape
         ) {
             Image(
                 painter = painterResource(id = R.drawable.baseline_favorite_border_24),
@@ -41,7 +45,7 @@ fun FavouriteDetailsIcon(
                 modifier = Modifier
                     .padding(8.dp)
                     .size(24.dp),
-                colorFilter = ColorFilter.tint(pink700)
+                colorFilter = ColorFilter.tint(pink700),
             )
         }
     }
