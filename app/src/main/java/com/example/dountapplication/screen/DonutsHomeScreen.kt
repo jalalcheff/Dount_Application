@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavController
 import com.example.dountapplication.composable.DonutsCard
 import com.example.dountapplication.composable.HorizontalSpacer
 import com.example.dountapplication.composable.SearchRow
@@ -33,15 +34,17 @@ import com.example.dountapplication.viewModel.HomeScreenUiState
 import com.example.dountapplication.viewModel.HomeScreenViewModel
 
 @Composable
-fun DonutsHomeScreen(viewModel: HomeScreenViewModel = hiltViewModel()) {
+fun DonutsHomeScreen(
+    navController: NavController,
+    viewModel: HomeScreenViewModel = hiltViewModel()) {
 val state by viewModel.state.collectAsState()
     DonutsHomeContent(
-        state
+        state, onClickDonuts = { navController.navigateToDetails() }
     )
 }
 
 @Composable
-fun DonutsHomeContent(state: HomeScreenUiState) {
+fun DonutsHomeContent(state: HomeScreenUiState, onClickDonuts: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -54,7 +57,7 @@ fun DonutsHomeContent(state: HomeScreenUiState) {
         VerticalSpacer(space = 25)
         LazyRow(contentPadding = PaddingValues(4.dp), modifier = Modifier.zIndex(1f)){
             items(state.todayOffers) {
-                TodayOfferDonutsCard(it)
+                TodayOfferDonutsCard(it, onClickDonuts)
                 HorizontalSpacer(space = 42)
             }
         }
@@ -73,5 +76,5 @@ fun DonutsHomeContent(state: HomeScreenUiState) {
 @Composable
 @Preview(widthDp = 360, heightDp = 800)
 fun PreviewDonutsHomeContent() {
-    DonutsHomeContent(HomeScreenUiState(emptyList(), emptyList()))
+    DonutsHomeContent(HomeScreenUiState(emptyList(), emptyList()), {})
 }

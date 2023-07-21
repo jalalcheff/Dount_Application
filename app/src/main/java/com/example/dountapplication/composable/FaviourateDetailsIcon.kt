@@ -19,7 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.zIndex
 import com.example.dountapplication.ui.theme.pink700
-import com.example.pizzaorderapp.R
+import com.teckiti.R
 
 
 @Composable

@@ -11,7 +11,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.dountapplication.ui.theme.pink700
-import com.example.pizzaorderapp.R
+import com.teckiti.R
 
 @Composable
 fun TitleText(

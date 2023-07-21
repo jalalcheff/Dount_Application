@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavController
 import com.example.dountapplication.composable.BottomSheet
 import com.example.dountapplication.composable.DonutsDetailsAppbar
 import com.example.dountapplication.composable.FavouriteDetailsIcon
@@ -23,22 +24,24 @@ import com.example.dountapplication.composable.VerticalSpacer
 import com.example.dountapplication.ui.theme.backgroundPink
 import com.example.dountapplication.viewModel.DetailsScreenUiState
 import com.example.dountapplication.viewModel.DetailsScreenViewModel
-import com.example.pizzaorderapp.R
+import com.teckiti.R
+
 @Composable
-fun DonutsDetailsScreen(viewModel: DetailsScreenViewModel = hiltViewModel()){
+fun DonutsDetailsScreen(
+    navController: NavController,
+    viewModel: DetailsScreenViewModel = hiltViewModel()){
     val state by viewModel.state.collectAsState()
     DonutsDetailsContent(state,
-        onClickIncDec = {
-            viewModel.updateQuantity(it)
-        }
+        onClickIncDec = { viewModel.updateQuantity(it) },
+        onClickBack = {navController.popBackStack()}
         )
 }
 @Composable
-fun DonutsDetailsContent(state: DetailsScreenUiState, onClickIncDec: (String) -> Unit) {
+fun DonutsDetailsContent(state: DetailsScreenUiState, onClickIncDec: (String) -> Unit, onClickBack: () -> Unit) {
     Column(modifier = Modifier
         .fillMaxSize()
         .background(backgroundPink)) {
-        DonutsDetailsAppbar(imageResourceId = R.drawable.baseline_arrow_back_ios_24)
+        DonutsDetailsAppbar(imageResourceId = R.drawable.baseline_arrow_back_ios_24, onClickBack)
         VerticalSpacer(16)
         SelectedDonutsImageDetails(imageResourceId = state.imageResource)
         VerticalSpacer(space = 16)
@@ -56,5 +59,5 @@ fun DonutsDetailsContent(state: DetailsScreenUiState, onClickIncDec: (String) ->
 @Composable
 @Preview
 fun PreviewDonuts(){
-    DonutsDetailsContent(DetailsScreenUiState(0,"","",0,0), {})
+    DonutsDetailsContent(DetailsScreenUiState(0,"","",0,0), {},{})
 }

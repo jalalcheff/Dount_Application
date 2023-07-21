@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.dountapplication.ui.theme.backgroundPink
-import com.example.pizzaorderapp.R
+import com.teckiti.R
 
 
 @Composable

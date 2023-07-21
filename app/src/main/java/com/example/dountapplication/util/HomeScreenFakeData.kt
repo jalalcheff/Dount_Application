@@ -2,7 +2,7 @@ package com.example.dountapplication.util
 
 import com.example.dountapplication.viewModel.HomeScreenDonutsModel
 import com.example.dountapplication.viewModel.HomeScreenTodayModel
-import com.example.pizzaorderapp.R
+import com.teckiti.R
 
 object HomeScreenFakeData {
     val listOfHomeScreenTodayFakeData = listOf(

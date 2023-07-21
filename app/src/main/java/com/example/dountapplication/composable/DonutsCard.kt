@@ -1,6 +1,7 @@
 package com.example.dountapplication.composable
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,7 +25,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import com.example.dountapplication.viewModel.HomeScreenUiState
-import com.example.pizzaorderapp.R
 
 @Composable
 fun DonutsCard(donuts: HomeScreenUiState.Donuts) {

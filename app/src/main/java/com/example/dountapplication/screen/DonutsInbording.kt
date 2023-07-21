@@ -30,13 +30,22 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.dountapplication.ui.theme.backgroundPink
 import com.example.dountapplication.ui.theme.pink500
 import com.example.dountapplication.ui.theme.pink700
-import com.example.pizzaorderapp.R
+import com.teckiti.R
 
 @Composable
-fun DonutsInboarding(){
+fun DonutsInboardingScreen(
+    navController: NavController
+){
+    DonutsInboarding { navController.navigateToHomeScreen() }
+}
+@Composable
+fun DonutsInboarding(
+    onClickStarted: () -> Unit
+){
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -80,7 +89,7 @@ fun DonutsInboarding(){
         )
         Spacer(modifier = Modifier.weight(1f))
         Button(
-            onClick = { /*TODO*/ },
+            onClick =  onClickStarted ,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp)
@@ -100,5 +109,4 @@ fun DonutsInboarding(){
 @Composable
 @Preview(widthDp = 360, heightDp = 800)
 fun PreviewDonutsBoarding(){
-    DonutsInboarding()
 }

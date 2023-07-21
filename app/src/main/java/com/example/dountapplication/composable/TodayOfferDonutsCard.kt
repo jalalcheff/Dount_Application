@@ -2,6 +2,7 @@ package com.example.dountapplication.composable
 
 import android.graphics.fonts.FontStyle
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -34,11 +35,11 @@ import androidx.compose.ui.zIndex
 import com.example.dountapplication.screen.DonutsHomeContent
 import com.example.dountapplication.ui.theme.cardCyanColor
 import com.example.dountapplication.viewModel.HomeScreenUiState
-import com.example.pizzaorderapp.R
+import com.teckiti.R
 
 @Composable
-fun TodayOfferDonutsCard(todayItems: HomeScreenUiState.TodayOffers) {
-    Box() {
+fun TodayOfferDonutsCard(todayItems: HomeScreenUiState.TodayOffers, onClickDonuts: ()-> Unit) {
+    Box(modifier = Modifier.clickable(onClick = onClickDonuts)) {
         Card(modifier = Modifier
             .width(193.dp)
             .height(250.dp),
@@ -47,7 +48,8 @@ fun TodayOfferDonutsCard(todayItems: HomeScreenUiState.TodayOffers) {
             Column(
                 Modifier
                     .fillMaxSize()
-                    .padding(horizontal = 20.dp)) {
+                    .padding(horizontal = 20.dp)
+            ) {
                 FavouriteDetailsIcon(shape = CircleShape, alignment = Alignment.Start)
                 VerticalSpacer(space = 32)
                 Subtitle(
