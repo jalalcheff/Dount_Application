@@ -17,7 +17,7 @@ import com.example.dountapplication.composable.FavouriteDetailsIcon
 import com.example.dountapplication.composable.SelectedDonutsImageDetails
 import com.example.dountapplication.composable.VerticalSpacer
 import com.example.dountapplication.ui.theme.backgroundPink
-import com.teckiti.R
+import com.example.pizzaorderapp.R
 
 @Composable
 fun DonutsDetails(){

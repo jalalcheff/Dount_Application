@@ -7,11 +7,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.dountapplication.ui.theme.backgroundPink
+import com.example.pizzaorderapp.R
 
 
 @Composable
 fun SearchRow() {
     Row (){
+        HorizontalSpacer(space = 16)
         Column() {
             TitleText(text = "Let's Gonuts", fontSize = 24)
             Text(
@@ -19,7 +21,7 @@ fun SearchRow() {
                 fontWeight = FontWeight(500)
             )
         }
-        FavouriteDetailsIcon(cardColor = backgroundPink)
+        FavouriteDetailsIcon(cardColor = backgroundPink, imageResourceId = R.drawable.baseline_search_24)
     }
 }
 @Composable

@@ -5,7 +5,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.res.painterResource
-import com.teckiti.R
 
 @Composable
 fun SelectedDonutsImageDetails(imageResourceId: Int) {

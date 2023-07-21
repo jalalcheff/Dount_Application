@@ -13,13 +13,13 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.dountapplication.ui.theme.pink500
-import com.teckiti.R
 import androidx.compose.foundation.layout.offset
 import androidx.compose.material3.CardDefaults
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.zIndex
 import com.example.dountapplication.ui.theme.pink700
+import com.example.pizzaorderapp.R
 
 
 @Composable
@@ -27,12 +27,12 @@ fun FavouriteDetailsIcon(
     modifier: Modifier = Modifier,
     cardColor: Color = Color.White,
     shape: Shape = CardDefaults.shape,
-    alignment: Alignment.Horizontal = Alignment.End
+    alignment: Alignment.Horizontal = Alignment.End,
+    imageResourceId: Int = R.drawable.baseline_favorite_border_24
 ) {
     Column(modifier = modifier.fillMaxWidth()) {
         Card(
             modifier = Modifier
-                .zIndex(1f)
                 .offset(x = 0.dp, y = 18.dp)
                 .padding(end = 12.dp)
                 .align(alignment = alignment),
@@ -40,7 +40,7 @@ fun FavouriteDetailsIcon(
             shape = shape
         ) {
             Image(
-                painter = painterResource(id = R.drawable.baseline_favorite_border_24),
+                painter = painterResource(id = imageResourceId),
                 contentDescription = "fav",
                 modifier = Modifier
                     .padding(8.dp)

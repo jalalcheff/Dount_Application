@@ -32,7 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.dountapplication.ui.theme.pink700
 import com.example.dountapplication.ui.theme.whiteBackground
-import com.teckiti.R
+import com.example.pizzaorderapp.R
 
 @Composable
 fun BottomSheet(){
