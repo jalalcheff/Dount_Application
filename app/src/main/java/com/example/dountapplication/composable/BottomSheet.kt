@@ -35,7 +35,13 @@ import com.example.dountapplication.ui.theme.whiteBackground
 import com.example.pizzaorderapp.R
 
 @Composable
-fun BottomSheet(){
+fun BottomSheet(
+    title: String,
+    description: String,
+    quantity: Int,
+    price: Int,
+    onClickIncDec: (String) -> Unit
+){
     Card(shape = RoundedCornerShape(20.dp)) {
         Column(
             modifier = Modifier
@@ -46,7 +52,7 @@ fun BottomSheet(){
         ) {
             Spacer(modifier = Modifier.height(36.dp))
             TitleText(
-                text = "Strawberry Wheel",
+                text = title,
                 fontSize = 24,
                 Modifier.padding(0.dp)
             )
@@ -58,7 +64,7 @@ fun BottomSheet(){
             )
             VerticalSpacer(space = 16)
             Text(
-                text = stringResource(R.string.these_soft_cake),
+                text = description,
                 fontWeight = FontWeight.Light
             )
             VerticalSpacer(space = 26)
@@ -69,19 +75,20 @@ fun BottomSheet(){
             )
             VerticalSpacer(space = 16)
             Row() {
-                IncDec(text = "-")
-                IncDec(text = "1")
+                IncDec(text = "-", onClick = onClickIncDec)
+                IncDec(text = quantity.toString(), onClick = onClickIncDec)
                 IncDec(
                     text = "+",
                     textColor = Color.White,
-                    cardColors = CardDefaults.cardColors(Color.Black)
+                    cardColors = CardDefaults.cardColors(Color.Black),
+                    onClick = onClickIncDec
                 )
             }
             Spacer(modifier = Modifier.weight(1f))
             Row(modifier = Modifier.padding(bottom = 24.dp),
             ) {
                 Text(
-                    text = "$ 16",
+                    text = "$ ${price * quantity}",
                     fontSize = 32.sp,
                     fontWeight = FontWeight.SemiBold,
                     fontFamily = FontFamily(Font(R.font.inter_regular)),
@@ -111,5 +118,5 @@ fun BottomSheet(){
 @Preview(widthDp = 360, heightDp = 800)
 @Composable
 fun PreviewBottomSheet(){
-    BottomSheet()
+    BottomSheet("", "", 0, 0, {})
 }

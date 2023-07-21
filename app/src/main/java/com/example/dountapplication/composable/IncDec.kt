@@ -1,5 +1,6 @@
 package com.example.dountapplication.composable
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -20,18 +21,23 @@ import androidx.compose.ui.unit.sp
 fun IncDec(
     text: String,
     textColor:Color = Color.Black,
-    cardColors: CardColors = CardDefaults.cardColors(Color.White)
+    cardColors: CardColors = CardDefaults.cardColors(Color.White),
+    onClick:(String)->Unit
     ){
     Card(
-        modifier = Modifier.size(45.dp).padding(end = 16.dp),
+        modifier = Modifier
+            .size(45.dp)
+            .clickable {onClick(text)},
         colors = cardColors,
+
     ) {
         Text(
             text = text,
             textAlign = TextAlign.Center,
             color = textColor,
             fontSize = 32.sp,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         )
     }
+    HorizontalSpacer(space = 12)
 }
